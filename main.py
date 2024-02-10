@@ -66,19 +66,12 @@ def write_to_csv(title, subtitle, content):
 
 
 def main():
-    # profile_url = input("Enter the profile you'd want to scrape: ")
-    profile_url = "https://growthstory1.substack.com/"
+    profile_url = input("Enter the profile you'd want to scrape: ")
     urls = get_articles(profile_url)
-    count = 1
     for url in urls:
-        if count >= 2:
-            return
-        print("URL - " + url)
         title, subtitle, content = scrape_substack_url(url)
-        print(title)
-        print(subtitle)
         write_to_csv(title, subtitle, content)
-        ++count
+
 
 
 if __name__ == '__main__':
